@@ -1,0 +1,23 @@
+server:
+  port: 9005
+
+spring:
+  # 连接端口号
+  datasource:
+    username: 'root'
+    password: 'root'
+    url: 'jdbc:mysql://localhost:3306/prizedraw?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8'
+    driver-class-name: com.mysql.jdbc.Driver
+    devtools:
+      restart:
+        enabled: true  #设置开启热部署
+        additional-paths: src/main/java #重启目录
+        exclude: WEB-INF/**
+  application:
+    name: prizeDrawModule
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848/
+mybatis-plus:
+  mapper-locations: classpath:com/example/demo/mapper/xml/*.xml
