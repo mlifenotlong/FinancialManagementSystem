@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../img/lsegimage.png">
+    <link rel="stylesheet" href="../lib-master/theme-chalk/index.css"/>
+    <script src="../vue.js" charset="utf-8"></script>
+    <script src="../axios.min.js" charset="utf-8"></script>
+    <script src="../lib-master/index.js" charset="utf-8"></script>
+</head>
+<body>
+<div id="app">
+    <img src="../img/lsegimage.png">
+
+
+
+
+</div>
+</body>
+
+<script>
+    new Vue({
+      el: '#app',
+ data(){
+                  return {
+        form: {
+        downloadServer:'',
+         startDate:'',
+        endDate:''
+        },
+        label:'process',
+
+
+      }
+         rules:{
+
+        }
+        },
+      mounted(){
+
+var _this = this;  //注意，要有，因为有箭头函数所以this作用域不在是vue，而定时器。我们要调用的是vue中的函数
+      this.timer = setInterval(() => {
+           _this.getProcess();
+    }, 3000);
+
+      },
+
+        methods:{
+        getProcess(){
+
+       var _this=this
+
+            axios({
+         method:"get",
+         url:"http://localhost:8088/getDownLoadProcess",
+
+
+
+     }).then(function (resp) {
+
+     _this.label=resp.data
+
+     })
+        },
+ onSubmit() {
+
+
+
+    axios({
+         method:"post",
+         url:"http://localhost:8088/test",
+         data:this.form
+
+
+     }).then(function (resp) {
+      alert(resp.data)
+     })
+
+ }}
+    })
+  </script>
+</html>
