@@ -8,10 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author yu_xuanyuan
- * @date 2022/9/23 10:16
- */
 @Component
 public class RedisUtil {
     @Autowired

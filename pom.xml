@@ -10,6 +10,11 @@
         <module>GateWay</module>
 		<module>OrderService</module>
 		<module>DownloadService</module>
+        <module>DinnerService</module>
+		<module>NettyService</module>
+        <module>FileTranfor</module>
+		<module>PrizeDrawService</module>
+		<module>retbot</module>
 
 
 	</modules>
